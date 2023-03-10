@@ -1,4 +1,6 @@
-import java.util.HashSet;
+import linkedlist.LinkedList;
+import linkedlist.LinkedListUtils;
+import linkedlist.ListNode;
 
 /**
  * @author Xie Zexian
@@ -7,6 +9,8 @@ import java.util.HashSet;
  */
 public class Test {
     public static void main(String[] args) {
-
+        int[] nums = new int[]{1, 2, 3, 4};
+        ListNode head = LinkedListUtils.getLinkedList(nums);
+        LinkedListUtils.print(head);
     }
 }

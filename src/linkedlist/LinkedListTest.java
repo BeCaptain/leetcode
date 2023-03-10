@@ -13,7 +13,7 @@ import java.util.Stack;
  */
 public class LinkedListTest {
     public static void main(String[] args) {
-        ListNode head = getLinkedList(new int[]{1, 2, 3, 4, 5});
+        ListNode head = LinkedListUtils.getLinkedList(new int[]{1, 2, 3, 4, 5});
         ListNode slow, fast;
         slow = fast = head;
         while (fast != null && fast.next != null) {
@@ -43,17 +43,6 @@ public class LinkedListTest {
             head = head.next;
         }
         return true;
-    }
-
-    /**
-     * @description 输入一串数组，返回一个单链表
-     * @createTime 2023/3/4 10:36
-     */
-    public static ListNode getLinkedList(int[] nums) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.addArray(nums);
-        // linkedlist.LinkedList has a headNode.
-        return linkedList.head.next;
     }
 
     /**

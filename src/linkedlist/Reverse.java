@@ -7,7 +7,7 @@ package linkedlist;
  */
 public class Reverse {
     public static void main(String[] args) {
-        ListNode head = getLinkedList(new int[]{1, 2, 3, 4, 5});
+        ListNode head = LinkedListUtils.getLinkedList(new int[]{1, 2, 3, 4, 5});
         ListNode newHead = reverseN(head, 3);
         while (newHead != null) {
             System.out.println(newHead.val);
@@ -47,13 +47,4 @@ public class Reverse {
         return last;
     }
 
-    /**
-     * @description 输入一串数组，返回一个单链表
-     * @createTime 2023/3/4 10:36
-     */
-    public static ListNode getLinkedList(int[] nums) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.addArray(nums);
-        return linkedList.head.next;
-    }
 }

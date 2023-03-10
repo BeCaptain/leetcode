@@ -13,7 +13,7 @@ import java.util.Queue;
 public class BinaryTreeUtils {
 
     /**
-     * @return nums中的-1表示null
+     * @param nums: -1表示null
      * @description 给定一个数组，创建一个完全二叉树
      * @createTime 2023/2/25 22:33
      */

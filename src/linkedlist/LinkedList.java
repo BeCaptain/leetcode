@@ -75,7 +75,7 @@ public class LinkedList {
             temp = temp.next;
             list.add(temp.val);
         }
-        System.out.println(StringUtils.join(list, " --> "));
+        System.out.println(StringUtils.join(list, " -> "));
     }
 
     public void addArray(int[] nums) {
