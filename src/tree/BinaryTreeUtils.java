@@ -17,22 +17,21 @@ public class BinaryTreeUtils {
      * @description 给定一个数组，创建一个完全二叉树
      * @createTime 2023/2/25 22:33
      */
-    public static TreeNode buildBinaryTree(int[] nums) {
+    public static TreeNode buildBinaryTree(Integer[] nums) {
         // 树节点列表
         List<TreeNode> treeNodeList = new ArrayList<>();
-        for (int num : nums) {
+        for (Integer num : nums) {
             treeNodeList.add(new TreeNode(num, null, null));
         }
         if (!treeNodeList.isEmpty()) {
             for (int j = 0; j < nums.length / 2; j++) {
                 TreeNode treeNode = treeNodeList.get(j);
                 // 因为索引从0开始，所以节点的左右孩子索引分别为(2 * i + 1)和(2 * i + 2)
-                // 数组中 -1 表示 null
-                if (2 * j + 1 < treeNodeList.size() && treeNodeList.get(2 * j + 1).val != -1) {
+                if (2 * j + 1 < treeNodeList.size() && treeNodeList.get(2 * j + 1).val != null) {
                     TreeNode leftChild = treeNodeList.get(2 * j + 1);
                     treeNode.setLeftChild(leftChild);
                 }
-                if (2 * j + 2 < treeNodeList.size() && treeNodeList.get(2 * j + 2).val != -1) {
+                if (2 * j + 2 < treeNodeList.size() && treeNodeList.get(2 * j + 2).val != null) {
                     TreeNode rightChild = treeNodeList.get(2 * j + 2);
                     treeNode.setRightChild(rightChild);
                 }

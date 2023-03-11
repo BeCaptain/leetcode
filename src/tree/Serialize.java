@@ -10,7 +10,7 @@ import java.util.Queue;
  */
 public class Serialize {
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, -1, 4};
+        Integer[] nums = new Integer[]{1, 2, 3, null, 4};
         TreeNode root = BinaryTreeUtils.buildBinaryTree(nums);
     }
 
