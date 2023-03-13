@@ -1,4 +1,3 @@
-import linkedlist.LinkedList;
 import linkedlist.LinkedListUtils;
 import linkedlist.ListNode;
 
@@ -12,5 +11,6 @@ public class Test {
         int[] nums = new int[]{1, 2, 3, 4};
         ListNode head = LinkedListUtils.getLinkedList(nums);
         LinkedListUtils.print(head);
+
     }
 }

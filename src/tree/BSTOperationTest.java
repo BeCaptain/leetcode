@@ -2,10 +2,10 @@ package tree;
 
 /**
  * @author Xie Zexian
- * @description 二叉搜索树测试类
+ * @description 二叉搜索树-操作篇
  * @createTime 2023/3/11 10:44
  */
-public class BinarySearchTreeTest {
+public class BSTOperationTest {
     public static void main(String[] args) {
         Integer[] nums = new Integer[]{4, 2, 7, 1, 3};
         TreeNode root = BinaryTreeUtils.buildBinaryTree(nums);
@@ -13,6 +13,10 @@ public class BinarySearchTreeTest {
         System.out.println(res.val);
     }
 
+    /**
+     * @description 二叉搜索树中删除某个节点
+     * @createTime 2023/3/12 21:40
+     */
     public static TreeNode deleteNode(TreeNode root, int key) {
         if (root.val == key) {
             // 找到节点，执行删除操作
