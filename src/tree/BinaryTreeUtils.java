@@ -52,7 +52,7 @@ public class BinaryTreeUtils {
         System.out.println(preList);
     }
 
-    public static List<String> preList = new ArrayList<>();
+    private static List<String> preList = new ArrayList<>();
 
     /**
      * @description 前序遍历
@@ -83,7 +83,7 @@ public class BinaryTreeUtils {
         System.out.println(levelList);
     }
 
-    public static List<String> levelList = new ArrayList<>();
+    private static List<String> levelList = new ArrayList<>();
 
     /**
      * @description 层次遍历

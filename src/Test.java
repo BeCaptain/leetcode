@@ -1,6 +1,3 @@
-import linkedlist.LinkedListUtils;
-import linkedlist.ListNode;
-
 /**
  * @author Xie Zexian
  * @description 测试类
@@ -8,9 +5,9 @@ import linkedlist.ListNode;
  */
 public class Test {
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 4};
-        ListNode head = LinkedListUtils.getLinkedList(nums);
-        LinkedListUtils.print(head);
-
+        int x = 1;
+        int y = 4;
+        System.out.println(6 & 3);
+        // System.out.println(Integer.bitCount(y));
     }
 }

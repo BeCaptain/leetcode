@@ -28,11 +28,11 @@ public class BinaryTreeTest {
     }
 
     // 记录所有子树以及出现的次数
-    public static HashMap<String, Integer> memo = new HashMap<>();
+    private static HashMap<String, Integer> memo = new HashMap<>();
     // 记录重复的子树根节点
-    public static LinkedList<TreeNode> res = new LinkedList<>();
+    private static LinkedList<TreeNode> res = new LinkedList<>();
 
-    public static String traverse652(TreeNode root) {
+    private static String traverse652(TreeNode root) {
         if (root == null) {
             return NULL;
         }
@@ -53,16 +53,15 @@ public class BinaryTreeTest {
         return subTree;
     }
 
-
     /**
      * @description 654.最大二叉树
      * @createTime 2023/3/8 10:28
      */
     public static TreeNode constructMaximumBinaryTree(int[] nums) {
-        return buildMaxBinaryTree(nums, 0, nums.length - 1);
+        return buildMaxBinaryTree654(nums, 0, nums.length - 1);
     }
 
-    public static TreeNode buildMaxBinaryTree(int[] nums, int low, int high) {
+    private static TreeNode buildMaxBinaryTree654(int[] nums, int low, int high) {
         if (low > high) {
             return null;
         }
@@ -75,8 +74,8 @@ public class BinaryTreeTest {
             }
         }
         TreeNode root = new TreeNode(maxVal);
-        root.left = buildMaxBinaryTree(nums, low, index - 1);
-        root.right = buildMaxBinaryTree(nums, index + 1, high);
+        root.left = buildMaxBinaryTree654(nums, low, index - 1);
+        root.right = buildMaxBinaryTree654(nums, index + 1, high);
         return root;
     }
 
@@ -104,19 +103,19 @@ public class BinaryTreeTest {
      * @description 543.二叉树的直径
      * @createTime 2023/2/26 11:33
      */
-    public static int maxDiameter = 0;
+    private static int maxDiameter = 0;
 
     public static int diameterOfBinaryTree(TreeNode root) {
-        getMaxDiameter(root);
+        getMaxDiameter543(root);
         return maxDiameter;
     }
 
-    public static int getMaxDiameter(TreeNode root) {
+    private static int getMaxDiameter543(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int leftMaxDepth = getMaxDiameter(root.left);
-        int rightMaxDepth = getMaxDiameter(root.right);
+        int leftMaxDepth = getMaxDiameter543(root.left);
+        int rightMaxDepth = getMaxDiameter543(root.right);
         maxDiameter = Math.max(maxDiameter, leftMaxDepth + rightMaxDepth);
         return Math.max(leftMaxDepth, rightMaxDepth) + 1;
     }

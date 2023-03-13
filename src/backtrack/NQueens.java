@@ -13,7 +13,7 @@ public class NQueens {
         System.out.println(solveNQueens(4));
     }
 
-    public static List<List<String>> res = new ArrayList<>();
+    private static List<List<String>> res = new ArrayList<>();
 
     public static List<List<String>> solveNQueens(int n) {
         // border: 棋盘(n * n)

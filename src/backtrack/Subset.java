@@ -15,12 +15,12 @@ public class Subset {
         System.out.println(subsetsWithDup(nums));
     }
 
-    public static List<List<Integer>> res = new LinkedList<>();
+    private static List<List<Integer>> res = new LinkedList<>();
 
     /**
      * @description 记录回溯算法的递归路径
      */
-    public static LinkedList<Integer> track = new LinkedList<>();
+    private static LinkedList<Integer> track = new LinkedList<>();
 
     /**
      * @description 元素 1)不重复 2)不复选

@@ -14,8 +14,8 @@ public class Serialize {
         TreeNode root = BinaryTreeUtils.buildBinaryTree(nums);
     }
 
-    public static final String SEP = ",";
-    public static final String NULL = "#";
+    private static final String SEP = ",";
+    private static final String NULL = "#";
 
     /**
      * @description 【前序】遍历

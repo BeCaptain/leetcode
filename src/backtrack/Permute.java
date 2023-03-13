@@ -18,7 +18,7 @@ public class Permute {
         }
     }
 
-    public static List<List<Integer>> res = new LinkedList<>();
+    private static List<List<Integer>> res = new LinkedList<>();
 
     /**
      * @description 46.输入一组不重复的数组，返回它们的全排列

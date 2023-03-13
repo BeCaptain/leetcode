@@ -17,12 +17,12 @@ public class ConstructionTree {
      * @createTime 2023/3/8 14:40
      */
     public TreeNode constructFromPreIn(int[] preorder, int[] inorder) {
-        return buildTreeFromPreIn(preorder, 0, preorder.length - 1,
+        return buildTreeFromPreIn105(preorder, 0, preorder.length - 1,
                 inorder, 0, inorder.length);
     }
 
-    public static TreeNode buildTreeFromPreIn(int[] preorder, int preStart, int preEnd,
-                                              int[] inorder, int inStart, int inEnd) {
+    private static TreeNode buildTreeFromPreIn105(int[] preorder, int preStart, int preEnd,
+                                                  int[] inorder, int inStart, int inEnd) {
         // base case
         if (preStart > preEnd) {
             return null;
@@ -41,9 +41,9 @@ public class ConstructionTree {
         // 递归构建左右子树
         TreeNode root = new TreeNode(rootVal);
         int leftSize = index - inStart;
-        root.left = buildTreeFromPreIn(preorder, preStart + 1, preStart + leftSize,
+        root.left = buildTreeFromPreIn105(preorder, preStart + 1, preStart + leftSize,
                 inorder, inStart, index - 1);
-        root.right = buildTreeFromPreIn(preorder, preStart + leftSize + 1, preEnd,
+        root.right = buildTreeFromPreIn105(preorder, preStart + leftSize + 1, preEnd,
                 inorder, index + 1, inEnd);
         return root;
     }
@@ -53,12 +53,12 @@ public class ConstructionTree {
      * @createTime 2023/3/8 15:49
      */
     public static TreeNode constructFromInPost(int[] inorder, int[] postorder) {
-        return buildTreeFromInPost(inorder, 0, inorder.length - 1,
+        return buildTreeFromInPost106(inorder, 0, inorder.length - 1,
                 postorder, 0, postorder.length - 1);
     }
 
-    public static TreeNode buildTreeFromInPost(int[] inorder, int inStart, int inEnd,
-                                               int[] postorder, int postStart, int postEnd) {
+    private static TreeNode buildTreeFromInPost106(int[] inorder, int inStart, int inEnd,
+                                                   int[] postorder, int postStart, int postEnd) {
         // base case
         if (inStart > inEnd) {
             return null;
@@ -76,9 +76,9 @@ public class ConstructionTree {
         // 递归构造左右子树
         TreeNode root = new TreeNode(rootVal);
         int leftSize = rootIndex - inStart;
-        root.left = buildTreeFromInPost(inorder, inStart, rootIndex - 1,
+        root.left = buildTreeFromInPost106(inorder, inStart, rootIndex - 1,
                 postorder, postStart, postStart + leftSize - 1);
-        root.right = buildTreeFromInPost(inorder, rootIndex + 1, inEnd,
+        root.right = buildTreeFromInPost106(inorder, rootIndex + 1, inEnd,
                 postorder, postStart + leftSize, postEnd - 1);
         return root;
     }
@@ -87,18 +87,18 @@ public class ConstructionTree {
      * @description 889.根据前序和后序遍历构造二叉树(结果可能不唯一)
      * @createTime 2023/3/8 16:31
      */
-    public static HashMap<Integer, Integer> valToIndex = new HashMap<>();
+    private static HashMap<Integer, Integer> valToIndex = new HashMap<>();
 
     public static TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
         for (int i = 0; i < postorder.length; i++) {
             valToIndex.put(postorder[i], i);
         }
-        return buildTreeFromPrePost(preorder, 0, preorder.length - 1,
+        return buildTreeFromPrePost889(preorder, 0, preorder.length - 1,
                 postorder, 0, postorder.length - 1);
     }
 
-    public static TreeNode buildTreeFromPrePost(int[] preorder, int preStart, int preEnd,
-                                                int[] postorder, int postStart, int postEnd) {
+    private static TreeNode buildTreeFromPrePost889(int[] preorder, int preStart, int preEnd,
+                                                    int[] postorder, int postStart, int postEnd) {
         if (preStart > preEnd) {
             return null;
         }
@@ -115,9 +115,9 @@ public class ConstructionTree {
         int leftSize = rootIndex - postStart + 1;
 
         TreeNode root = new TreeNode(rootVal);
-        root.left = buildTreeFromPrePost(preorder, preStart + 1, preStart + leftSize,
+        root.left = buildTreeFromPrePost889(preorder, preStart + 1, preStart + leftSize,
                 postorder, postStart, rootIndex);
-        root.right = buildTreeFromPrePost(preorder, rootIndex + leftSize + 1, preEnd,
+        root.right = buildTreeFromPrePost889(preorder, rootIndex + leftSize + 1, preEnd,
                 postorder, rootIndex + 1, postEnd - 1);
         return root;
     }

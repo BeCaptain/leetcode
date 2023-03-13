@@ -26,7 +26,7 @@ public class LCATest {
         return find236(root, p, q);
     }
 
-    public static TreeNode find236(TreeNode root, TreeNode p, TreeNode q) {
+    private static TreeNode find236(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return null;
         }
@@ -58,7 +58,7 @@ public class LCATest {
         return find1676(root, values);
     }
 
-    public static TreeNode find1676(TreeNode root, HashSet<Integer> values) {
+    private static TreeNode find1676(TreeNode root, HashSet<Integer> values) {
         if (root == null) {
             return null;
         }
@@ -89,9 +89,9 @@ public class LCATest {
         return res;
     }
 
-    public static boolean foundP = false, foundQ = false;
+    private static boolean foundP = false, foundQ = false;
 
-    public static TreeNode find1644(TreeNode root, TreeNode p, TreeNode q) {
+    private static TreeNode find1644(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return null;
         }
@@ -126,7 +126,7 @@ public class LCATest {
         return findLCAFromBST(root, val1, val2);
     }
 
-    public static TreeNode findLCAFromBST(TreeNode root, int val1, int val2) {
+    private static TreeNode findLCAFromBST(TreeNode root, int val1, int val2) {
         if (root == null) {
             return null;
         }

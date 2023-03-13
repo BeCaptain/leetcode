@@ -47,7 +47,7 @@ public class BSTOperationTest {
         return root;
     }
 
-    public static TreeNode getMinOfRightSubTree(TreeNode node) {
+    private static TreeNode getMinOfRightSubTree(TreeNode node) {
         // BST最左边的节点就是最小的
         while (node.left != null) {
             node = node.left;
@@ -123,9 +123,9 @@ public class BSTOperationTest {
         return null;
     }
 
-    public static int sum = 0;
+    private static int sum = 0;
 
-    public static void traverse538(TreeNode root) {
+    private static void traverse538(TreeNode root) {
         if (root == null) {
             return;
         }

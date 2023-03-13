@@ -17,9 +17,9 @@ public class Combine {
         }
     }
 
-    public static List<List<Integer>> res = new LinkedList<>();
+    private static List<List<Integer>> res = new LinkedList<>();
 
-    public static LinkedList<Integer> track = new LinkedList<>();
+    private static LinkedList<Integer> track = new LinkedList<>();
 
     /**
      * @description 77.组合, 返回[1, n]中所有可能的k个数的组合

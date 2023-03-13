@@ -36,7 +36,7 @@ public class BinarySearch {
         return left;
     }
 
-    public static int fShipWithinDays(int[] weights, int x) {
+    private static int fShipWithinDays(int[] weights, int x) {
         int days = 0;
         // Do not increase i in for loop !!
         for (int i = 0; i < weights.length; ) {
@@ -84,7 +84,7 @@ public class BinarySearch {
         return left;
     }
 
-    public static int fMinEatingSpeed(int[] piles, int speed) {
+    private static int fMinEatingSpeed(int[] piles, int speed) {
         int costHour = 0;
         for (int p : piles) {
             int hours = p / speed + (p % speed == 0 ? 0 : 1);

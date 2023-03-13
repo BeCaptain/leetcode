@@ -15,7 +15,10 @@ public class Lock {
         System.out.println(BFS(deadends, target));
     }
 
-    // 将s[j]向上拨动
+    /**
+     * @description 将s[j]向上拨动
+     * @createTime 2023/3/13 17:19
+     */
     public static String plusOne(String s, int j) {
         char[] ch = s.toCharArray();
         if (ch[j] == '9') {
@@ -26,7 +29,10 @@ public class Lock {
         return new String(ch);
     }
 
-    // 将s[j]向下拨动
+    /**
+     * @description 将s[j]向下拨动
+     * @createTime 2023/3/13 17:19
+     */
     public static String minusOne(String s, int j) {
         char[] ch = s.toCharArray();
         if (ch[j] == '0') {

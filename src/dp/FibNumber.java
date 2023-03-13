@@ -22,7 +22,7 @@ public class FibNumber {
     }
 
 
-    public static int[] memo = new int[10];
+    private static int[] memo = new int[10];
 
     /**
      * @description 递归：自顶向下+备忘录

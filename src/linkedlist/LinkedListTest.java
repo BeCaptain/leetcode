@@ -1,8 +1,5 @@
 package linkedlist;
 
-import linkedlist.LinkedList;
-import linkedlist.ListNode;
-
 import java.util.PriorityQueue;
 import java.util.Stack;
 

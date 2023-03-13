@@ -18,9 +18,9 @@ public class Summary {
     // 1. 无重复不可复选
     // 1.1 组合(子集)
 
-    public static List<List<Integer>> res = new ArrayList<>();
+    private static List<List<Integer>> res = new ArrayList<>();
 
-    public static LinkedList<Integer> track = new LinkedList<>();
+    private static LinkedList<Integer> track = new LinkedList<>();
 
     public List<List<Integer>> subset_case1(int[] nums) {
         backtrack_subset_case1(nums, 0);

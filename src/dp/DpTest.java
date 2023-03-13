@@ -14,7 +14,7 @@ public class DpTest {
         System.out.println(coinChange(coins, amount));
     }
 
-    public static int[] memo;
+    private static int[] memo;
 
     public static int coinChange(int[] coins, int amount) {
         memo = new int[amount + 1];
@@ -61,7 +61,7 @@ public class DpTest {
         return memo[amount];
     }
 
-    public static int n = 0;
+    private static int n = 0;
 
     public static void printIndent(int n) {
         for (int i = 0; i < n; i++) {

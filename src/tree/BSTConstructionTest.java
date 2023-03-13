@@ -1,6 +1,5 @@
 package tree;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,15 +19,15 @@ public class BSTConstructionTest {
      */
     public static int numTrees(int n) {
         memo96 = new int[n + 1][n + 1];
-        return countBSTNum(1, n);
+        return countBSTNum96(1, n);
     }
 
     /**
      * @description 备忘录 --> 重叠子问题
      */
-    public static int[][] memo96;
+    private static int[][] memo96;
 
-    public static int countBSTNum(int low, int high) {
+    private static int countBSTNum96(int low, int high) {
         // base case
         if (low > high) {
             return 1;
@@ -39,8 +38,8 @@ public class BSTConstructionTest {
         }
         int res = 0;
         for (int i = low; i < high; i++) {
-            int left = countBSTNum(low, i - 1);
-            int right = countBSTNum(i + 1, high);
+            int left = countBSTNum96(low, i - 1);
+            int right = countBSTNum96(i + 1, high);
             res += left * right;
         }
         // 将结果存入备忘录
@@ -59,7 +58,7 @@ public class BSTConstructionTest {
         return generateBST95(1, n);
     }
 
-    public static List<TreeNode> generateBST95(int low, int high) {
+    private static List<TreeNode> generateBST95(int low, int high) {
         List<TreeNode> res = new LinkedList<>();
         // base case
         if (low > high) {
