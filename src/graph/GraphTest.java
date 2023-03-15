@@ -3,6 +3,7 @@ package graph;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author Xie Zexian
@@ -12,16 +13,16 @@ import java.util.List;
 public class GraphTest {
     public static void main(String[] args) {
         int[][] graph = new int[][]{{1, 2}, {3}, {3}, {}};
-        System.out.println(allPathsSourceTarget(graph));
+        System.out.println(allPathSourceTargetBFS(graph));
     }
 
     /**
-     * @description 797.所有可能的路径-有向无环图遍历
+     * @description 797.所有可能的路径-有向无环图遍历 (DFS)
      * @createTime 2023/3/14 18:51
      */
     public static List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         LinkedList<Integer> path = new LinkedList<>();
-        traverse(graph, 0, path);
+        traverseDFS(graph, 0, path);
         return res;
     }
 
@@ -31,10 +32,10 @@ public class GraphTest {
     private static List<List<Integer>> res = new LinkedList<>();
 
     /**
-     * @description 图的遍历框架
+     * @description 图的遍历框架 --> DFS
      * @createTime 2023/3/14 19:03
      */
-    private static void traverse(int[][] graph, int s, LinkedList<Integer> path) {
+    private static void traverseDFS(int[][] graph, int s, LinkedList<Integer> path) {
         // 添加节点s到路径
         path.add(s);
 
@@ -49,9 +50,38 @@ public class GraphTest {
         }
         // 递归每个相邻节点
         for (int v : graph[s]) {
-            traverse(graph, v, path);
+            traverseDFS(graph, v, path);
         }
         // 从路径移出节点s
         path.removeLast();
+    }
+
+    /**
+     * @description 797.所有可能的路径-有向无环图遍历 (BFS)
+     * @createTime 2023/3/15 18:59
+     */
+    public static List<List<Integer>> allPathSourceTargetBFS(int[][] graph) {
+        List<List<Integer>> res = new LinkedList<>();
+        int n = graph.length;
+        Queue<List<Integer>> queue = new LinkedList<>();
+        queue.offer(new LinkedList<>(Arrays.asList(0)));
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> cur = queue.poll();
+                int last = cur.get(cur.size() - 1);
+                // 遍历到target了
+                if (last == n - 1) {
+                    res.add(cur);
+                    continue;
+                }
+                for (int num : graph[last]) {
+                    List<Integer> list = new LinkedList<>(cur);
+                    list.add(num);
+                    queue.offer(list);
+                }
+            }
+        }
+        return res;
     }
 }

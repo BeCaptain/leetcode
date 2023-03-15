@@ -21,12 +21,12 @@ public class BipartiteGraph {
     /**
      * @description 记录图中节点是否被访问过
      */
-    private static boolean visited[];
+    private static boolean[] visited;
 
     /**
      * @description 记录图中节点的颜色, false和true代表两种不同的颜色
      */
-    private static boolean color[];
+    private static boolean[] color;
 
     /**
      * @param graph: 邻接表
