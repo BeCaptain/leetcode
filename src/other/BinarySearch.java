@@ -2,7 +2,7 @@ package other;
 
 /**
  * @author Xie Zexian
- * @description 二分查找测试类
+ * @description 二分查找
  * @createTime 2023/2/23 22:05
  */
 public class BinarySearch {
@@ -15,7 +15,6 @@ public class BinarySearch {
      * @description 1011.在D天内送达包裹的能力
      * @createTime 2023/2/24 21:54
      */
-
     public static int shipWithinDays(int[] weights, int days) {
         // 最小/大载重
         int left = 0;
@@ -58,7 +57,6 @@ public class BinarySearch {
      * @description 875.爱吃香蕉的珂珂
      * @createTime 2023/2/24 19:12
      */
-
     public static int minEatingSpeed(int[] piles, int h) {
         int targetTime = h;
         // 珂珂吃香蕉的最慢/快速度
@@ -126,7 +124,6 @@ public class BinarySearch {
      * @createTime 2023/2/24 19:08
      */
     public static int[] searchRange(int[] nums, int target) {
-
         return new int[]{-1, -1};
     }
 
