@@ -51,7 +51,7 @@ public class UnionFind {
      * @description 返回节点x的根节点
      * @createTime 2023/3/15 11:55
      */
-    public int find(int x) {
+    private int find(int x) {
         // 路径压缩!!!  --> 保证任意树的高度保持在常数，使得各个API时间复杂度为 O(1)
         // 可以直接把一整棵树压平
         if (parent[x] != x) {
@@ -66,5 +66,13 @@ public class UnionFind {
      */
     public boolean connected(int p, int q) {
         return find(p) == find(q);
+    }
+
+    /**
+     * @description 获取连通分量的个数
+     * @createTime 2023/3/16 11:17
+     */
+    public int getCount() {
+        return count;
     }
 }
