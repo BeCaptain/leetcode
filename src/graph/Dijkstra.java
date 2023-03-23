@@ -43,9 +43,7 @@ public class Dijkstra {
         // start -> start 的最短距离是0
         distTo[start] = 0;
         // 优先队列，distFromStart比较小的排前面
-        Queue<State> pq = new PriorityQueue<>((a, b) -> {
-            return a.distFromStart - b.distFromStart;
-        });
+        Queue<State> pq = new PriorityQueue<>((a, b) -> (a.distFromStart - b.distFromStart));
         // 从起点start开始BFS
         pq.offer(new State(start, 0));
         while (!pq.isEmpty()) {
