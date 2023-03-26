@@ -10,15 +10,13 @@ import java.util.Stack;
  */
 public class LinkedListTest {
     public static void main(String[] args) {
-        ListNode head = LinkedListUtils.getLinkedList(new int[]{1, 2, 3, 4, 5});
-        ListNode slow, fast;
-        slow = fast = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        System.out.println("slow = " + slow.val);
-        System.out.println("fast = " + fast.val);
+
+        ListNode l1 = LinkedListUtils.getLinkedList(new int[]{9, 9, 9, 9, 9, 9, 9});
+        ListNode l2 = LinkedListUtils.getLinkedList(new int[]{9, 9, 9, 9});
+
+        ListNode res = addTwoNumbers(l1, l2);
+        LinkedListUtils.print(res);
+
 
     }
 
@@ -85,6 +83,31 @@ public class LinkedListTest {
         return dummy.next;
     }
 
+    /**
+     * @description 2.两数相加
+     * @createTime 2023/3/23 21:22
+     */
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode p1 = l1, p2 = l2;
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+        int carry = 0;
+        while (p1 != null || p2 != null || carry > 0) {
+            int val = carry;
+            if (p1 != null) {
+                val += p1.val;
+                p1 = p1.next;
+            }
+            if (p2 != null) {
+                val += p2.val;
+                p2 = p2.next;
+            }
+            carry = val / 10;
+            p.next = new ListNode(val % 10);
+            p = p.next;
+        }
+        return dummy.next;
+    }
 
 }
 
