@@ -85,8 +85,11 @@ public class EditingDistance {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     dp[i][j] = min(
+                            // 插入
                             dp[i][j - 1],
+                            // 删除
                             dp[i - 1][j],
+                            // 替换
                             dp[i - 1][j - 1]
                     );
                 }
