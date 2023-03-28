@@ -9,7 +9,8 @@ import java.util.Arrays;
  */
 public class OtherProblem {
     public static void main(String[] args) {
-
+        int[][] grid = new int[][]{{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
+        System.out.println(minPathSum(grid));
     }
 
     /**
@@ -108,5 +109,60 @@ public class OtherProblem {
         }
         memo115[i][j] = res;
         return res;
+    }
+
+    /**
+     * @description 64.最小路径和 -- 自顶向下(递归)
+     * @createTime 2023/3/28 20:27
+     */
+    public static int minPathSum(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        memo64 = new int[m][n];
+        for (int[] row : memo64) {
+            Arrays.fill(row, -1);
+        }
+        return dp64(grid, m - 1, n - 1);
+    }
+
+    private static int[][] memo64;
+
+    private static int dp64(int[][] grid, int i, int j) {
+        // base case (到达右下角)
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        if (i < 0 || j < 0) {
+            return Integer.MAX_VALUE;
+        }
+        if (memo64[i][j] != -1) {
+            return memo64[i][j];
+        }
+        memo64[i][j] = Math.min(
+                dp64(grid, i - 1, j),
+                dp64(grid, i, j - 1)
+        ) + grid[i][j];
+        return memo64[i][j];
+    }
+
+    public static int minPathSum2(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] dpTable = new int[m][n];
+        // base case
+        dpTable[0][0] = grid[0][0];
+        for (int i = 1; i < m; i++) {
+            dpTable[i][0] = dpTable[i - 1][0] + grid[i][0];
+        }
+        for (int j = 1; j < n; j++) {
+            dpTable[0][j] = dpTable[0][j - 1] + grid[0][j - 1];
+        }
+        // 状态转移
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dpTable[i][j] = Math.min(dpTable[i - 1][j], dpTable[i][j - 1]) + grid[i][j];
+            }
+        }
+        return dpTable[m - 1][n - 1];
     }
 }
