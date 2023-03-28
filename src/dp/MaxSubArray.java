@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 /**
  * @author Xie Zexian
- * @description 最大子数组
+ * @description 最大子数组和
  * @createTime 2023/3/26 21:48
  */
 public class MaxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println(maxSubArrayPreSum(nums));
+        System.out.println(maxSubArraySlidingWindow(nums));
     }
 
     /**
