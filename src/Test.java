@@ -1,8 +1,6 @@
-import tree.BinaryTreeUtils;
-import tree.TreeNode;
-
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 
 /**
  * @author Xie Zexian
@@ -11,36 +9,48 @@ import java.util.Queue;
  */
 public class Test {
     public static void main(String[] args) {
-        TreeNode root = BinaryTreeUtils.buildBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6});
-        levelTraverse(root);
+
+        letterCombinations("");
+        System.out.println(res);
     }
 
-    public static void levelTraverse(TreeNode root) {
-        if (root == null) {
+    public static String[] dict = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+    public static List<String> res = new LinkedList<>();
+
+    public static LinkedList<Character> track = new LinkedList<>();
+
+    public static List<String> letterCombinations(String digits) {
+        backtrack(digits, 0);
+        return res;
+    }
+
+    public static void backtrack(String digits, int start) {
+        if (track.size() == digits.length()) {
+            res.add(linkedListToString(track));
             return;
         }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        int depth = 1;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode cur = queue.poll();
-                System.out.println(cur.val);
-                // 二叉树
-                if (cur.left != null) {
-                    queue.offer(cur.left);
-                }
-                if (cur.right != null) {
-                    queue.offer(cur.right);
-                }
-                // 多叉树
-                // for (TreeNode child : cur.children) {
-                //     queue.offer(child);
-                // }
-            }
-            depth++;
+        for (char c : getCharacters(digits, start).toCharArray()) {
+            track.add(c);
+            backtrack(digits, start + 1);
+            track.removeLast();
         }
 
     }
+
+    public static String getCharacters(String digits, int index) {
+        char c = digits.charAt(index);
+        int number = Integer.parseInt(String.valueOf(c));
+        return dict[number];
+    }
+
+    public static String linkedListToString(LinkedList<Character> characters) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Character c : characters) {
+            stringBuilder.append(c);
+        }
+        return stringBuilder.toString();
+    }
+
+
 }
