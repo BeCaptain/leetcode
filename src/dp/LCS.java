@@ -47,7 +47,7 @@ public class LCS {
     }
 
     /**
-     * @description 1143.最长公共子序列 -- 自底向上
+     * @description 1143.最长公共子序列 -- 自底向上 + DP Table
      * @createTime 2023/3/26 20:09
      */
     public static int longestCommonSubsequence2(String s1, String s2) {
