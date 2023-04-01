@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class OtherProblem {
     public static void main(String[] args) {
         int[][] grid = new int[][]{{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
-        System.out.println(minPathSum(grid));
+        System.out.println(climbStairs(2));
     }
 
     /**
@@ -145,6 +145,10 @@ public class OtherProblem {
         return memo64[i][j];
     }
 
+    /**
+     * @description 64.最小路径和 -- 自底向上(递推)
+     * @createTime 2023/3/28 22:01
+     */
     public static int minPathSum2(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -164,5 +168,50 @@ public class OtherProblem {
             }
         }
         return dpTable[m - 1][n - 1];
+    }
+
+    /**
+     * @description 70.爬楼梯 -- 自顶向下(递归)
+     * @createTime 2023/3/28 22:02
+     */
+    public static int climbStairs(int n) {
+        memo70 = new int[n + 1];
+        return dp70(n);
+    }
+
+    private static int[] memo70;
+
+    private static int dp70(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+        if (memo70[n] != 0) {
+            return memo70[n];
+        }
+        memo70[n] = dp70(n - 1) + dp70(n - 2);
+        return memo70[n];
+    }
+
+    /**
+     * @description 70.爬楼梯 -- 自底向上(递推)
+     * @createTime 2023/3/28 22:02
+     */
+    public static int climbStairs2(int n) {
+        int[] dp = new int[n + 1];
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+        dp[1] = 1;
+        dp[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
     }
 }
