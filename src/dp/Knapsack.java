@@ -76,6 +76,7 @@ public class Knapsack {
      */
     public static int change(int amount, int[] coins) {
         int n = coins.length;
+        // 只使用前i个物品(可以重复使用),当背包容量为j时，有dp[i][j]种方法可以装满背包
         int[][] dp = new int[n + 1][amount + 1];
         // base case
         for (int i = 0; i <= n; i++) {
