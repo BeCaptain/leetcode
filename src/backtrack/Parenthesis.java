@@ -8,7 +8,7 @@ import java.util.List;
  * @description 括号生成
  * @createTime 2023/4/3 16:23
  */
-public class Parentheses {
+public class Parenthesis {
     public static void main(String[] args) {
 
     }
