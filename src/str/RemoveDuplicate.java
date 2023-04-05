@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * @author Xie Zexian
- * @description 数组去重测试类
+ * @description 数组去重
  * @createTime 2023/3/7 11:31
  */
 public class RemoveDuplicate {
@@ -15,7 +15,7 @@ public class RemoveDuplicate {
     }
 
     /**
-     * @description 316.去除重复字母
+     * @description 316.去除重复字母, 保证字典序最小
      * @createTime 2023/3/7 14:51
      */
     public static String removeDuplicateLetters(String s) {
