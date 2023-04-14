@@ -2,15 +2,15 @@ package array;
 
 /**
  * @author Xie Zexian
- * @description 差分数组
+ * @description 差分数组实践
  * @createTime 2023/3/6 11:09
  */
-public class DiffArray {
+public class DiffArrayTest {
     public static void main(String[] args) {
         int[][] bookings = new int[][]{{9, 0, 1}, {3, 3, 7}};
         System.out.println(carPooling(bookings, 4));
     }
-    
+
 
     /**
      * @description 1094.拼车
