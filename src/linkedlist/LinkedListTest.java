@@ -21,26 +21,6 @@ public class LinkedListTest {
     }
 
     /**
-     * @description 234.回文链表
-     * @createTime 2023/3/4 21:43
-     */
-    public static boolean isPalindrome(ListNode head) {
-        Stack<Integer> stack = new Stack<>();
-        ListNode p = head;
-        while (p != null) {
-            stack.push(p.val);
-            p = p.next;
-        }
-        while (head != null) {
-            if (head.val != stack.pop()) {
-                return false;
-            }
-            head = head.next;
-        }
-        return true;
-    }
-
-    /**
      * @description 206.反转链表
      * @createTime 2023/3/4 10:40
      */
