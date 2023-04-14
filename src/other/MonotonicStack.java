@@ -12,10 +12,10 @@ import java.util.Stack;
  */
 public class MonotonicStack {
     public static void main(String[] args) {
-        int[] nums1 = new int[]{2, 4};
+        int[] nums1 = new int[]{1, 2, 1};
         int[] nums2 = new int[]{1, 2, 3, 4};
         int[] temperatures = new int[]{30, 40, 50, 60};
-        System.out.println(Arrays.toString(dailyTemperatures(temperatures)));
+        System.out.println(Arrays.toString(nextGreaterElements2(nums1)));
     }
 
     /**
