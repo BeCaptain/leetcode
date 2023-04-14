@@ -83,7 +83,7 @@ public class BinaryTreeUtils {
         System.out.println(levelList);
     }
 
-    private static List<String> levelList = new ArrayList<>();
+    private static List<List<String>> levelList = new ArrayList<>();
 
     /**
      * @description 层次遍历
@@ -97,12 +97,13 @@ public class BinaryTreeUtils {
         queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
+            List<String> level = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
                 if (cur == null) {
-                    levelList.add("null");
+                    level.add("null");
                 } else {
-                    levelList.add(cur.val + "");
+                    level.add(cur.val + "");
                     // 非叶子节点
                     if (cur.left != null || cur.right != null) {
                         queue.offer(cur.left);
@@ -110,6 +111,7 @@ public class BinaryTreeUtils {
                     }
                 }
             }
+            levelList.add(new ArrayList<>(level));
         }
     }
 }
