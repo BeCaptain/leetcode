@@ -5,7 +5,7 @@ package tree;
  * @description 二叉搜索树-操作篇
  * @createTime 2023/3/11 10:44
  */
-public class BSTOperationTest {
+public class BSTOperation {
     public static void main(String[] args) {
         Integer[] nums = new Integer[]{4, 2, 7, 1, 3};
         TreeNode root = BinaryTreeUtils.buildBinaryTree(nums);

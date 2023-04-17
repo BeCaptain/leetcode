@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @description 二叉树的构造
  * @createTime 2023/3/9 20:29
  */
-public class ConstructionTree {
+public class Construction {
     public static void main(String[] args) {
 
     }

@@ -8,7 +8,7 @@ import java.util.List;
  * @description 二叉搜索树-构造篇
  * @createTime 2023/3/12 21:42
  */
-public class BSTConstructionTest {
+public class BSTConstruction {
     public static void main(String[] args) {
 
     }
