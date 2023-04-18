@@ -2,7 +2,7 @@ package linkedlist;
 
 /**
  * @author Xie Zexian
- * @description 反转链表(递归)
+ * @description 反转链表
  * @createTime 2023/3/7 16:51
  */
 public class Reverse {
@@ -45,6 +45,22 @@ public class Reverse {
         head.next.next = head;
         head.next = successor;
         return last;
+    }
+
+    /**
+     * @description 206.反转链表 --> 迭代
+     * @createTime 2023/3/4 10:40
+     */
+    public static ListNode reverseList206(ListNode head) {
+        ListNode cur = head;
+        ListNode pre = null;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
     }
 
 }
