@@ -6,8 +6,8 @@ package linkedlist;
  * @createTime 2023/1/29 21:48
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     public ListNode() {
     }
