@@ -20,21 +20,6 @@ public class LinkedListTest {
 
     }
 
-    /**
-     * @description 206.反转链表
-     * @createTime 2023/3/4 10:40
-     */
-    public static ListNode reverseList(ListNode head) {
-        ListNode cur = head;
-        ListNode pre = null;
-        while (cur != null) {
-            ListNode next = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-        }
-        return pre;
-    }
 
     /**
      * @description 23.合并K个升序链表
