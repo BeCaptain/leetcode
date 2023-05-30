@@ -11,8 +11,37 @@ import java.util.List;
  */
 public class SlidingWindow {
     public static void main(String[] args) {
-        String s = "abcabcbb";
-        System.out.println(lengthOfLongestSubstring(s));
+        int target = 11;
+        int[] nums = new int[]{1,1,1,1,1,1,1,1};
+        System.out.println(minSubArrayLen(target, nums));
+    }
+
+    /**
+     * @description 209.长度最小的子数组
+     * @createTime 2023/5/29 21:54
+     */
+    public static int minSubArrayLen(int target, int[] nums) {
+        int minLen = Integer.MAX_VALUE;
+        int left = 0, right = 0;
+        int sum = 0;
+        int n = nums.length;
+        while (right < n) {
+            // 增大窗口
+            if (sum < target) {
+                sum += nums[right];
+            }
+            right++;
+
+            while (sum >= target) {
+                if (right - left < minLen) {
+                    minLen = right - left;
+                }
+                sum -= nums[left];
+                left++;
+            }
+
+        }
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 
     /**
@@ -170,5 +199,6 @@ public class SlidingWindow {
         }
         return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
     }
+
 
 }

@@ -12,8 +12,44 @@ import java.util.List;
 public class Rotate {
     public static void main(String[] args) {
         int[][] matrix = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-        spiralOrder(matrix);
+        // spiralOrder(matrix);
+        printMatrix(generateMatrix(4));
     }
+
+    /**
+     * @description 59.螺旋矩阵II
+     * @createTime 2023/5/29 22:17
+     */
+    public static int[][] generateMatrix(int n) {
+        int[][] matrix = new int[n][n];
+        int top = 0, bottom = n - 1;
+        int left = 0, right = n - 1;
+        int cur = 1;
+        while (cur <= n * n) {
+            for (int i = left; i <= right; i++) {
+                matrix[top][i] = cur;
+                cur++;
+            }
+            top++;
+            for (int i = top; i <= bottom; i++) {
+                matrix[i][right] = cur;
+                cur++;
+            }
+            right--;
+            for (int i = right; i >= left; i--) {
+                matrix[bottom][i] = cur;
+                cur++;
+            }
+            bottom--;
+            for (int i = bottom; i >= top; i--) {
+                matrix[i][left] = cur;
+                cur++;
+            }
+            left++;
+        }
+        return matrix;
+    }
+
 
     /**
      * @description 54.螺旋矩阵
