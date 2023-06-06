@@ -11,15 +11,48 @@ import java.util.Stack;
 public class LinkedListTest {
     public static void main(String[] args) {
 
-        ListNode l1 = LinkedListUtils.getLinkedList(new int[]{9, 9, 9, 9, 9, 9, 9});
-        ListNode l2 = LinkedListUtils.getLinkedList(new int[]{9, 9, 9, 9});
+        ListNode l1 = LinkedListUtils.getLinkedList(new int[]{1, 2, 6, 3, 4, 5, 6});
+        ListNode listNode = reverseList(l1);
 
-        ListNode res = addTwoNumbers(l1, l2);
-        LinkedListUtils.print(res);
+        LinkedListUtils.print(listNode);
 
 
     }
 
+    /**
+     * @description 206.反转链表
+     * @createTime 2023/6/6 11:42
+     */
+    public static ListNode reverseList(ListNode head) {
+        ListNode prev = null, cur = head;
+        while (cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = tmp;
+        }
+        return prev;
+    }
+
+    /**
+     * @description 203.移除元素
+     * @createTime 2023/6/6 11:14
+     */
+    public static ListNode removeElements(ListNode head, int val) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode prev = dummy;
+        while (head != null) {
+            if (head.val == val) {
+                prev.next = head.next;
+                head = prev.next;
+            } else {
+                prev = prev.next;
+                head = head.next;
+            }
+        }
+        return dummy.next;
+    }
 
     /**
      * @description 23.合并K个升序链表

@@ -7,7 +7,16 @@ package tree;
  */
 public class TreeTest {
     public static void main(String[] args) {
-        TreeNode root = BinaryTreeUtils.buildBinaryTree(new Integer[]{3, 9, 20, null, null, 15, 7});
+        String a = "123";
+        String b = "123";
+    }
+
+    public static int f(int i) {
+        return i;
+    }
+
+    public static void f(int j, int x) {
+        System.out.println(j);
     }
 
 
