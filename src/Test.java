@@ -1,6 +1,5 @@
-import tree.TreeNode;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /**

@@ -1,7 +1,6 @@
 package linkedlist;
 
 import java.util.PriorityQueue;
-import java.util.Stack;
 
 /**
  * @author Xie Zexian
