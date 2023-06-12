@@ -1,6 +1,5 @@
 package hashmap;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,9 +10,38 @@ import java.util.Set;
  */
 public class HashMapTest {
     public static void main(String[] args) {
-        int[] nums1 = new int[]{1, 2, 2, 1};
-        int[] nums2 = new int[]{2, 2};
-        System.out.println(Arrays.toString(intersection(nums1, nums2)));
+        System.out.println(isHappy(4));
+    }
+
+    /**
+     * @description 202.快乐数
+     * @createTime 2023/6/6 22:04
+     */
+    public static boolean isHappy(int n) {
+        HashSet<Integer> set = new HashSet<>();
+        while (true) {
+            int squareSum = getSquareSum(n);
+            System.out.println(squareSum);
+            if (squareSum == 1) {
+                return true;
+            }
+            if (set.contains(squareSum)) {
+                return false;
+            } else {
+                set.add(squareSum);
+            }
+            n = squareSum;
+        }
+    }
+
+    public static int getSquareSum(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int number = n % 10;
+            sum += number * number;
+            n = n / 10;
+        }
+        return sum;
     }
 
     /**
