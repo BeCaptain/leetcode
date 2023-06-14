@@ -2,6 +2,7 @@ package array;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.PriorityQueue;
 
 /**
  * @author Xie Zexian
@@ -13,6 +14,18 @@ public class ArrayTest {
         int[] nums = new int[]{3, 3};
         int target = 6;
         System.out.println(Arrays.toString(twoSum(nums, target)));
+    }
+
+    public static int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int n :
+                nums) {
+            queue.offer(n);
+            if (queue.size() > k) {
+                queue.poll();
+            }
+        }
+        return queue.peek();
     }
 
     /**
