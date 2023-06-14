@@ -1,5 +1,6 @@
 package hashmap;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,31 @@ import java.util.Set;
  */
 public class HashMapTest {
     public static void main(String[] args) {
-        System.out.println(isHappy(4));
+
+        String ransomNote = "a";
+        String magazine = "aab";
+        canConstruct(ransomNote, magazine);
+    }
+
+    /**
+     * @description 383.赎金信
+     * @createTime 2023/6/14 9:49
+     */
+    public static boolean canConstruct(String ransomNote, String magazine) {
+        int[] record = new int[26];
+        if (ransomNote.length() > magazine.length()) {
+            return false;
+        }
+        for (char c : magazine.toCharArray()) {
+            record[c - 'a']++;
+        }
+        for (char c : ransomNote.toCharArray()) {
+            record[c - 'a']--;
+            if (record[c - 'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -21,7 +46,6 @@ public class HashMapTest {
         HashSet<Integer> set = new HashSet<>();
         while (true) {
             int squareSum = getSquareSum(n);
-            System.out.println(squareSum);
             if (squareSum == 1) {
                 return true;
             }
