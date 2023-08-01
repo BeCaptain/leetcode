@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 /**
  * @author Xie Zexian
@@ -9,27 +8,18 @@ import java.util.stream.Collectors;
  */
 public class Test {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-        // while (in.hasNextLine()) {
-        //     String next = in.nextLine();
-        //     System.out.println(next);
-        //     // String input = in.nextLine();
-        //     // System.out.println(Arrays.stream(input.split(" ")).sorted().collect(Collectors.joining(" ")));
-        // }
-
-
-        while (in.hasNextLine()) {
-            String[] arr = in.nextLine().split(" ");
-            int[] ints = Arrays.stream(arr).mapToInt(Integer::valueOf).toArray();
-            Arrays.stream(ints)
-                    .mapToObj(String::valueOf)
-                    .collect(Collectors.joining(" "));
-
-            // System.out.println(Arrays.stream(arr).mapToInt(Integer::valueOf).sum());
-        }
-
+        int[] arr = new int[]{7, 1, 5, 3, 6, 4};
     }
 
+
+    /**
+     * @description 获取输入的一行数组
+     * @creationTime 2023/7/30 14:31
+     */
+    public static int[] getInputArray() {
+        Scanner in = new Scanner(System.in);
+        String[] arr = in.nextLine().split(" ");
+        return Arrays.stream(arr).mapToInt(Integer::valueOf).toArray();
+    }
 
 }
